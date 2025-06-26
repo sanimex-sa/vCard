@@ -34,6 +34,8 @@ END:VCARD
 
 export default function AddContactButton() {
   const handleClick = () => {
+    console.log(55555);
+
     const vcard = createVCard(contact);
     const blob = new Blob([vcard], { type: "text/vcard" });
     const url = URL.createObjectURL(blob);
