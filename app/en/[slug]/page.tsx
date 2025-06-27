@@ -7,11 +7,11 @@ import { useAppContext } from "@/app/context";
 import { vCards } from "@/app/constants/vCards";
 import NoVCardFound from "@/app/components/noVCardFound";
 import VCard from "@/app/components/vCard/VCard";
-import { vCardFr } from "@/app/translations/vCard.translate";
 import { Box, CircularProgress } from "@mui/material";
 import { flexCenter } from "@/app/globalStyles";
+import { vCardEn } from "@/app/translations/vCard.translate";
 
-const VCardFr = () => {
+const VCardEn = () => {
   const { setVCard, vCard, setVCardLang, finding, setFinding }: IAppContext =
     useAppContext();
   const params = useParams();
@@ -20,7 +20,7 @@ const VCardFr = () => {
   useEffect(() => {
     const timeout = setTimeout(() => {
       setVCard?.((vCards as any)[slug as string]);
-      setVCardLang?.(vCardFr);
+      setVCardLang?.(vCardEn);
     }, 1000); // 3 secondes
 
     return () => {
@@ -54,4 +54,4 @@ const VCardFr = () => {
   );
 };
 
-export default VCardFr;
+export default VCardEn;

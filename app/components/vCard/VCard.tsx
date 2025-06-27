@@ -22,6 +22,7 @@ import { IAppContext } from "@/app/interfaces/context.interface";
 import { useAppContext } from "@/app/context";
 import { address, emailGlobal, fixe } from "@/app/constants/vCards";
 import { fontSizeBody1, fontSizeBody2, primaryColor } from "@/app/globalStyles";
+import { Skeleton } from "@mui/material";
 
 const VCard = () => {
   const { vCard, vCardLang, locale }: IAppContext = useAppContext();

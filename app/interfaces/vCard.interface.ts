@@ -9,6 +9,7 @@ export interface IvCard {
 
 export interface IvCards {
   abdelazizChahboun: IvCard;
+  imadAyad: IvCard;
   hassanJbillo: IvCard;
 }
 

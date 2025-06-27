@@ -18,7 +18,8 @@ export const AppWrapper = ({
 }>) => {
   const pathname = usePathname();
   const [locale, setLocale] = useState<SupportedLang>("fr");
-  const [vCard, setVCard] = useState<IvCard | undefined>(undefined);
+  const [finding, setFinding] = useState<boolean>(true);
+  const [vCard, setVCard] = useState<IvCard | undefined | null>(null);
   const [vCardLang, setVCardLang] = useState<IVCardTranslations | undefined>(
     undefined
   );
@@ -36,7 +37,15 @@ export const AppWrapper = ({
 
   return (
     <AppContext.Provider
-      value={{ locale, vCard, setVCard, vCardLang, setVCardLang }}
+      value={{
+        locale,
+        vCard,
+        setVCard,
+        vCardLang,
+        setVCardLang,
+        finding,
+        setFinding,
+      }}
     >
       {children}
     </AppContext.Provider>

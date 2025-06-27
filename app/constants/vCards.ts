@@ -26,6 +26,18 @@ export const vCards: IvCards = {
     phone: "+32 499 88 04 89",
     email: "abdelaziz@sanimex.be",
   },
+  imadAyad: {
+    avatar: pathAvatars + "imad.png",
+    lastname: "Ayad",
+    firstname: "Imad",
+    title: {
+      fr: "Expert conseiller",
+      en: "Expert advisor",
+      nl: "Expert adviseur",
+    },
+    phone: "+32 490 42 57 65",
+    email: "imad@sanimex.be",
+  },
   hassanJbillo: {
     avatar: pathAvatars + "hassan.png",
     lastname: "Jbillo",

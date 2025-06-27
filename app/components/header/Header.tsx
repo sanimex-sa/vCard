@@ -17,6 +17,7 @@ import {
   fontSizeH6,
   primaryColor,
 } from "@/app/globalStyles";
+import { Skeleton } from "@mui/material";
 
 const Header = () => {
   const { vCard, locale }: IAppContext = useAppContext();

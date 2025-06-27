@@ -7,3 +7,11 @@ export const vCardFr: IVCardTranslations = {
   emailPerso: "Email direct",
   emailGlobal: "Email cuisine général",
 };
+
+export const vCardEn: IVCardTranslations = {
+  addContact: "Add Contact",
+  phone: "Direct Number",
+  fixe: "Main Kitchen Number",
+  emailPerso: "Direct Email",
+  emailGlobal: "Main Kitchen Email",
+};
