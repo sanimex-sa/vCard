@@ -18,6 +18,10 @@ export const container: CSSObject = {
   margin: "0 auto",
 };
 
+export const marginAuto: CSSObject = {
+  margin: "0 auto",
+};
+
 export const fontSizeH1 = {
   xs: "2rem", // Mobile size (32px)
   sm: "2.2rem", // Small tablets (35.2px)
