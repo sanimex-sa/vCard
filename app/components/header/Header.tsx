@@ -6,21 +6,25 @@ import {
   HeaderName,
   HeaderTitle,
   HeaderWrapper,
+  Lang,
+  LangWrapper,
 } from "./HeaderStyle";
 import { useAppContext } from "@/app/context";
 import { IAppContext } from "@/app/interfaces/context.interface";
-import { notFound, usePathname } from "next/navigation";
-import {
-  fontSizeH1,
-  fontSizeH2,
-  fontSizeH4,
-  fontSizeH6,
-  primaryColor,
-} from "@/app/globalStyles";
-import { Skeleton } from "@mui/material";
+import { useRouter } from "next/navigation";
+import { fontSizeH4, fontSizeH6, primaryColor } from "@/app/globalStyles";
 
 const Header = () => {
   const { vCard, locale }: IAppContext = useAppContext();
+  const langs: string[] = ["FR", "NL", "EN"];
+
+  const router = useRouter();
+
+  const formatNames = (first: string, last: string) => {
+    const f = first.toLowerCase();
+    const l = last.charAt(0).toUpperCase() + last.slice(1).toLowerCase();
+    return f + l;
+  };
 
   return (
     <HeaderWrapper
@@ -28,10 +32,30 @@ const Header = () => {
         backgroundColor: primaryColor,
         clipPath: {
           xs: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 99.8%)",
-          sm: "polygon(0% 0%, 100% 0%, 80% 100%, 20% 99.8%)",
+          md: "polygon(0% 0%, 100% 0%, 80% 100%, 20% 99.8%)",
         },
       }}
     >
+      <LangWrapper>
+        {langs.map((lang: string, id: number) => (
+          <Lang
+            key={id}
+            onClick={() => {
+              const slug = formatNames(vCard?.firstname!, vCard?.lastname!);
+              window.location.href = `/${lang.toLowerCase()}/${slug}`;
+            }}
+            sx={{
+              color: lang.toLowerCase() === locale ? primaryColor : "white",
+              backgroundColor:
+                lang.toLowerCase() === locale ? "white" : primaryColor,
+              marginRight: id === langs.length - 1 ? "0" : "10px",
+            }}
+          >
+            {lang}
+          </Lang>
+        ))}
+      </LangWrapper>
+
       <HeaderAvatarWrap>
         <HeaderAvatarImg
           src={vCard?.avatar!}

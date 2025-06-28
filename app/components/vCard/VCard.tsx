@@ -17,14 +17,16 @@ import {
   WhatsApp,
   ArrowForward,
   PersonAdd,
+  LocationPin,
 } from "@mui/icons-material";
 import { IAppContext } from "@/app/interfaces/context.interface";
 import { useAppContext } from "@/app/context";
 import { address, emailGlobal, fixe } from "@/app/constants/vCards";
 import { fontSizeBody1, fontSizeBody2, primaryColor } from "@/app/globalStyles";
-import { Skeleton } from "@mui/material";
 
 const VCard = () => {
+  type Locale = "fr" | "en" | "nl";
+
   const { vCard, vCardLang, locale }: IAppContext = useAppContext();
 
   const sizeIcon: string = "30px";
@@ -53,7 +55,12 @@ const VCard = () => {
     email: [vCard?.email!, emailGlobal],
     company: "Sanimex",
     jobTitle: vCard?.title[locale as "fr" | "en" | "nl"],
-    address: address,
+    address: {
+      street: address.street[locale as "fr" | "en" | "nl"],
+      city: address.city,
+      postalCode: address.postalCode,
+      country: address.country[locale as "fr" | "en" | "nl"],
+    },
   };
 
   const createVCard = async (contact: Contact) => {
@@ -129,7 +136,7 @@ END:VCARD
     },
     {
       icon: <Phone sx={{ fontSize: sizeIcon }} />,
-      label: vCardLang?.fixe,
+      label: vCardLang?.fixeCUI,
       value: fixe,
       action: `tel:${fixe}`,
     },
@@ -144,6 +151,14 @@ END:VCARD
       label: vCardLang?.emailGlobal,
       value: emailGlobal,
       action: `mailto:${emailGlobal}`,
+    },
+    {
+      icon: <LocationPin sx={{ fontSize: sizeIcon }} />,
+      label: vCardLang?.address,
+      value: `${address.street[locale as Locale]}\n${address.postalCode} ${address.city}\n${address.country[locale as Locale]}`,
+      action: `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(
+        `${address.street[locale as Locale]}, ${address.postalCode} ${address.city}, ${address.country[locale as Locale]}`
+      )}`,
     },
   ];
 
@@ -164,7 +179,14 @@ END:VCARD
         <ArrowForward />
       </VCardWhatsapp>
       {infos.map((info, id) => (
-        <VCardInfoWrapper key={id}>
+        <VCardInfoWrapper
+          key={id}
+          sx={{
+            whiteSpace: "pre-line",
+            display:
+              id === 0 && vCard?.type !== "CUI" ? "none !important" : "flex",
+          }}
+        >
           <VCardInfoContent>
             <VCardInfoContentTextWrap>
               <VCardInfoContentText

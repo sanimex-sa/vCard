@@ -1,4 +1,5 @@
 export interface IvCard {
+  type: "CUI" | "SNX";
   avatar: string;
   lastname: string;
   firstname: string;
@@ -8,6 +9,7 @@ export interface IvCard {
 }
 
 export interface IvCards {
+  sanimex1070: IvCard;
   abdelazizChahboun: IvCard;
   imadAyad: IvCard;
   hassanJbillo: IvCard;
@@ -16,7 +18,9 @@ export interface IvCards {
 export interface IVCardTranslations {
   addContact: string;
   phone: string;
-  fixe: string;
+  fixeCUI: string;
+  fixeSNX: string;
   emailPerso: string;
   emailGlobal: string;
+  address: string;
 }

@@ -1,4 +1,3 @@
-import { OverridableStringUnion } from "@mui/types";
 import { IvCard, IVCardTranslations } from "./vCard.interface";
 import { Dispatch } from "react";
 

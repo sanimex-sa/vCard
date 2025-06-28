@@ -1,15 +1,6 @@
-import {
-  container,
-  flexCenter,
-  globalColorBg,
-  globalColorText,
-  marginAuto,
-  primaryColor,
-  secondaryColor,
-} from "@/app/globalStyles";
+import { flexCenter, marginAuto, primaryColor } from "@/app/globalStyles";
 import styled from "@emotion/styled";
-import { Box, Button, Grid, Typography } from "@mui/material";
-import Image from "next/image";
+import { Box, Button, Typography } from "@mui/material";
 
 export const VCardAddContact = styled(Button)`
   position: relative;

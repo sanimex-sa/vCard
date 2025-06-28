@@ -1,14 +1,14 @@
-import {
-  container,
-  flexCenter,
-  globalColorText,
-  marginAuto,
-  primaryColor,
-  secondaryColor,
-} from "@/app/globalStyles";
+import { flexCenter, marginAuto, secondaryColor } from "@/app/globalStyles";
 import styled from "@emotion/styled";
-import { Box, Button, Grid, Typography } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 import Image from "next/image";
+
+export const Lang = styled(Button)``;
+
+export const LangWrapper = styled(Box)`
+  margin-bottom: 50px;
+  ${flexCenter}
+`;
 
 export const HeaderTitle = styled(Typography)`
   text-align: center;

@@ -9,9 +9,9 @@ import NoVCardFound from "@/app/components/noVCardFound";
 import VCard from "@/app/components/vCard/VCard";
 import { Box, CircularProgress } from "@mui/material";
 import { flexCenter } from "@/app/globalStyles";
-import { vCardEn } from "@/app/translations/vCard.translate";
+import { vCardNl } from "@/app/translations/vCard.translate";
 
-const VCardEn = () => {
+const VCardNl = () => {
   const { setVCard, vCard, setVCardLang, finding, setFinding }: IAppContext =
     useAppContext();
   const params = useParams();
@@ -20,7 +20,7 @@ const VCardEn = () => {
   useEffect(() => {
     const timeout = setTimeout(() => {
       setVCard?.((vCards as any)[slug as string]);
-      setVCardLang?.(vCardEn);
+      setVCardLang?.(vCardNl);
     }, 1000); // 3 secondes
 
     return () => {
@@ -54,4 +54,4 @@ const VCardEn = () => {
   );
 };
 
-export default VCardEn;
+export default VCardNl;

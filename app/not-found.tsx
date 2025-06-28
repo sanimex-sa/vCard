@@ -8,6 +8,8 @@ import {
   notFoundNl,
 } from "./translations/404.translate";
 import { I404Translations } from "./interfaces/404.interface";
+import { Box, Container, Typography } from "@mui/material";
+import { ErrorOutline } from "@mui/icons-material";
 
 // adapte le chemin d'import selon ta structure de dossiers
 
@@ -50,13 +52,25 @@ export default function NotFound() {
 
   return (
     <html lang={detectedLang}>
-      <body>
-        {detectedLang !== "loading" && (
-          <div style={{ padding: "2rem" }}>
-            <h1>{translations.title}</h1>
-            <p>{translations.text}</p>
-          </div>
-        )}
+      <body style={{ margin: 0, fontFamily: "Roboto, sans-serif" }}>
+        <Container maxWidth="sm">
+          <Box
+            display="flex"
+            flexDirection="column"
+            alignItems="center"
+            justifyContent="center"
+            minHeight="100vh"
+            textAlign="center"
+          >
+            <ErrorOutline color="error" sx={{ fontSize: 80, mb: 2 }} />
+            <Typography variant="h3" component="h1" gutterBottom>
+              {translations.title}
+            </Typography>
+            <Typography variant="body1" color="text.secondary" sx={{ mb: 4 }}>
+              {translations.text}
+            </Typography>
+          </Box>
+        </Container>
       </body>
     </html>
   );
