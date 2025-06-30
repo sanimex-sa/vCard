@@ -20,12 +20,6 @@ const Header = () => {
 
   const router = useRouter();
 
-  const formatNames = (first: string, last: string) => {
-    const f = first.toLowerCase();
-    const l = last.charAt(0).toUpperCase() + last.slice(1).toLowerCase();
-    return f + l;
-  };
-
   return (
     <HeaderWrapper
       sx={{
@@ -49,6 +43,7 @@ const Header = () => {
               backgroundColor:
                 lang.toLowerCase() === locale ? "white" : primaryColor,
               marginRight: id === langs.length - 1 ? "0" : "10px",
+              border: "1px solid white",
             }}
           >
             {lang}
