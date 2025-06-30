@@ -5,7 +5,7 @@ const pathAvatars: string = "/images/avatars/";
 export const fixes = {
   CUI: "+32 2 527 37 60",
   SNX: "+32 2 527 37 60",
-  SNX2: "+32 2 527 37 60",
+  SNX2: "+32 2 203 66 25",
 };
 
 export const emailGlobal: string = "cuisines@sanimex.be";
