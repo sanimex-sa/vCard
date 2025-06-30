@@ -3,29 +3,38 @@ import { IVCardTranslations } from "../interfaces/vCard.interface";
 export const vCardFr: IVCardTranslations = {
   addContact: "Ajouter contact",
   phone: "Numéro direct",
-  fixeCUI: "Numéro cuisine général",
-  fixeSNX: "Numéro général",
+  fixe: {
+    CUI: "Numéro cuisine général",
+    SNX: "Numéro général",
+    SNX2: "Numéro général",
+  },
   emailPerso: "Email direct",
-  emailGlobal: "Email cuisine général",
+  emailGlobal: { CUI: "Email cuisine général", SNX: "Email", SNX2: "Email" },
   address: "Adresse",
 };
 
 export const vCardEn: IVCardTranslations = {
   addContact: "Add Contact",
   phone: "Direct Number",
-  fixeCUI: "Main Kitchen Number",
-  fixeSNX: "Main Number",
+  fixe: { CUI: "Main Kitchen Number", SNX: "Main Number", SNX2: "Main Number" },
   emailPerso: "Direct Email",
-  emailGlobal: "Main Kitchen Email",
+  emailGlobal: { CUI: "Main Kitchen Email", SNX: "Email", SNX2: "Email" },
   address: "Address",
 };
 
 export const vCardNl: IVCardTranslations = {
   addContact: "Contact toevoegen",
   phone: "Direct nummer",
-  fixeCUI: "Algemeen keukennummer",
-  fixeSNX: "Algemeen nummer",
+  fixe: {
+    CUI: "Algemeen keukennummer",
+    SNX: "Algemeen nummer",
+    SNX2: "Algemeen nummer",
+  },
   emailPerso: "Persoonlijk e-mailadres",
-  emailGlobal: "Algemeen keukene-mailadres",
+  emailGlobal: {
+    CUI: "Algemeen keukene-mailadres",
+    SNX: "Email",
+    SNX2: "Email",
+  },
   address: "Adres",
 };

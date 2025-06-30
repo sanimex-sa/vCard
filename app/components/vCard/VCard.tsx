@@ -21,7 +21,7 @@ import {
 } from "@mui/icons-material";
 import { IAppContext } from "@/app/interfaces/context.interface";
 import { useAppContext } from "@/app/context";
-import { address, emailGlobal, fixe } from "@/app/constants/vCards";
+import { address, emailGlobal, fixes } from "@/app/constants/vCards";
 import { fontSizeBody1, fontSizeBody2, primaryColor } from "@/app/globalStyles";
 
 const VCard = () => {
@@ -40,10 +40,10 @@ const VCard = () => {
     company?: string;
     jobTitle?: string;
     address?: {
-      street: string;
-      city: string;
-      postalCode: string;
-      country: string;
+      street: any;
+      city: any;
+      postalCode: any;
+      country: any;
     };
   };
 
@@ -51,15 +51,24 @@ const VCard = () => {
     photoUrl: vCard?.avatar,
     firstName: vCard?.firstname!,
     lastName: vCard?.lastname!,
-    phone: [vCard?.phone!, fixe],
-    email: [vCard?.email!, emailGlobal],
-    company: "Sanimex",
+    phone: [
+      ...(vCard?.type === "CUI"
+        ? [vCard?.phone!, (fixes as any)[vCard?.type]]
+        : [vCard?.type && (fixes as any)[vCard?.type], vCard?.phone!]),
+    ].filter(Boolean),
+    email: [vCard?.email!, ...(vCard?.type === "CUI" ? [emailGlobal] : [])],
+    company: "",
     jobTitle: vCard?.title[locale as "fr" | "en" | "nl"],
     address: {
-      street: address.street[locale as "fr" | "en" | "nl"],
-      city: address.city,
-      postalCode: address.postalCode,
-      country: address.country[locale as "fr" | "en" | "nl"],
+      street:
+        vCard?.type &&
+        address[vCard?.type].street[locale as "fr" | "en" | "nl"],
+      city:
+        vCard?.type && address[vCard?.type].city[locale as "fr" | "en" | "nl"],
+      postalCode: vCard?.type && address[vCard?.type].postalCode,
+      country:
+        vCard?.type &&
+        address[vCard?.type].country[locale as "fr" | "en" | "nl"],
     },
   };
 
@@ -136,9 +145,9 @@ END:VCARD
     },
     {
       icon: <Phone sx={{ fontSize: sizeIcon }} />,
-      label: vCardLang?.fixeCUI,
-      value: fixe,
-      action: `tel:${fixe}`,
+      label: vCard?.type && vCardLang?.fixe[vCard?.type],
+      value: vCard?.type! && (fixes as any)[vCard?.type],
+      action: `tel:${vCard?.type! && (fixes as any)[vCard?.type]}`,
     },
     {
       icon: <Mail sx={{ fontSize: sizeIcon }} />,
@@ -148,16 +157,16 @@ END:VCARD
     },
     {
       icon: <Mail sx={{ fontSize: sizeIcon }} />,
-      label: vCardLang?.emailGlobal,
-      value: emailGlobal,
-      action: `mailto:${emailGlobal}`,
+      label: vCard?.type! && vCardLang?.emailGlobal[vCard?.type],
+      value: vCard?.type === "CUI" ? emailGlobal : vCard?.email,
+      action: `mailto:${vCard?.email}`,
     },
     {
       icon: <LocationPin sx={{ fontSize: sizeIcon }} />,
       label: vCardLang?.address,
-      value: `${address.street[locale as Locale]}\n${address.postalCode} ${address.city}\n${address.country[locale as Locale]}`,
+      value: `${vCard?.type! && address[vCard?.type].street[locale as Locale]}\n${vCard?.type! && address[vCard?.type].postalCode} ${vCard?.type! && address[vCard?.type].city[locale as Locale]}\n${vCard?.type! && address[vCard?.type].country[locale as Locale]}`,
       action: `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(
-        `${address.street[locale as Locale]}, ${address.postalCode} ${address.city}, ${address.country[locale as Locale]}`
+        `${vCard?.type! && address[vCard?.type].street[locale as Locale]}, ${vCard?.type! && address[vCard?.type].postalCode} ${vCard?.type! && address[vCard?.type].city}, ${vCard?.type! && address[vCard?.type].country[locale as Locale]}`
       )}`,
     },
   ];
@@ -184,7 +193,9 @@ END:VCARD
           sx={{
             whiteSpace: "pre-line",
             display:
-              id === 0 && vCard?.type !== "CUI" ? "none !important" : "flex",
+              (id === 0 || id === 2) && vCard?.type !== "CUI"
+                ? "none !important"
+                : "flex",
           }}
         >
           <VCardInfoContent>

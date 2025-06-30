@@ -41,7 +41,7 @@ const Header = () => {
           <Lang
             key={id}
             onClick={() => {
-              const slug = formatNames(vCard?.firstname!, vCard?.lastname!);
+              const slug = vCard?.slug;
               window.location.href = `/${lang.toLowerCase()}/${slug}`;
             }}
             sx={{
