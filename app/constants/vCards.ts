@@ -96,6 +96,21 @@ export const vCards: IvCards = {
     type: "SNX2",
     slug: "sanimex1000",
   },
+  manager: {
+    avatar: pathAvatars + "aziz.png",
+    lastname: "Chahboun",
+    firstname: "Abdelaziz",
+    title: {
+      fr: "Directeur général",
+      en: "General Manager",
+      nl: "Algemeen Directeur",
+    },
+
+    phone: "+32 499 88 04 89",
+    email: "a.chahboun@sanimex.be",
+    type: "SNX",
+    slug: "manager",
+  },
   abdelazizChahboun: {
     avatar: pathAvatars + "aziz.png",
     lastname: "Chahboun",

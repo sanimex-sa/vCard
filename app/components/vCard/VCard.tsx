@@ -52,9 +52,11 @@ const VCard = () => {
     firstName: vCard?.firstname!,
     lastName: vCard?.lastname!,
     phone: [
-      ...(vCard?.type === "CUI"
-        ? [vCard?.phone!, (fixes as any)[vCard?.type]]
-        : [vCard?.type && (fixes as any)[vCard?.type], vCard?.phone!]),
+      ...(vCard?.slug === "manager"
+        ? [vCard?.phone!]
+        : vCard?.type === "CUI"
+          ? [vCard?.phone!, (fixes as any)[vCard?.type]]
+          : [vCard?.type && (fixes as any)[vCard?.type], vCard?.phone!]),
     ].filter(Boolean),
     email: [vCard?.email!, ...(vCard?.type === "CUI" ? [emailGlobal] : [])],
     company: "",
@@ -193,7 +195,11 @@ END:VCARD
           sx={{
             whiteSpace: "pre-line",
             display:
-              (id === 0 || id === 2) && vCard?.type !== "CUI"
+              ((id === 0 || id === 2) &&
+                vCard?.type !== "CUI" &&
+                vCard?.slug !== "manager") ||
+              (id === 1 && vCard?.slug == "manager") ||
+              (id === 3 && vCard?.slug == "manager")
                 ? "none !important"
                 : "flex",
           }}
