@@ -3,7 +3,7 @@ import { ReactNode } from "react";
 
 export default function FrenchLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="fr">
+    <html lang="fr-BE">
       <body>{children}</body>
     </html>
   );

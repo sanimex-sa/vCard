@@ -203,6 +203,7 @@ END:VCARD
                 ? "none !important"
                 : "flex",
           }}
+          data-aos={id % 2 === 0 ? "fade-down-right" : "fade-down-left"}
         >
           <VCardInfoContent>
             <VCardInfoContentTextWrap>

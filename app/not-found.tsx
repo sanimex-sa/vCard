@@ -11,14 +11,12 @@ import { I404Translations } from "./interfaces/404.interface";
 import { Box, Container, Typography } from "@mui/material";
 import { ErrorOutline } from "@mui/icons-material";
 
-// adapte le chemin d'import selon ta structure de dossiers
-
-const supportedLangs = ["fr", "en", "nl", "loading"] as const;
+const supportedLangs = ["fr-BE", "en-GB", "nl-NL"] as const;
 type SupportedLang = (typeof supportedLangs)[number];
 
 export default function NotFound() {
   const pathname = usePathname();
-  const [detectedLang, setDetectedLang] = useState<SupportedLang>("loading");
+  const [detectedLang, setDetectedLang] = useState<SupportedLang>("fr-BE");
 
   useEffect(() => {
     const langFromPath = pathname.split("/")[1] as string | undefined;
@@ -33,7 +31,7 @@ export default function NotFound() {
       if (supportedLangs.includes(navLang as SupportedLang)) {
         setDetectedLang(navLang as SupportedLang);
       } else {
-        setDetectedLang("en");
+        setDetectedLang("fr-BE");
       }
     }
   }, [pathname]);
@@ -44,9 +42,9 @@ export default function NotFound() {
   }
 
   const translations: I404Translations =
-    detectedLang === "fr"
+    detectedLang === "fr-BE"
       ? notFoundFr
-      : detectedLang === "nl"
+      : detectedLang === "nl-NL"
         ? notFoundNl
         : notFoundEn;
 

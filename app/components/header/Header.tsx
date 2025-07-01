@@ -45,13 +45,15 @@ const Header = () => {
               marginRight: id === langs.length - 1 ? "0" : "10px",
               border: "1px solid white",
             }}
+            data-aos="zoom-in"
+            data-aos-delay={id === 1 || id === 2 ? "300" : "0"}
           >
             {lang}
           </Lang>
         ))}
       </LangWrapper>
 
-      <HeaderAvatarWrap>
+      <HeaderAvatarWrap data-aos="zoom-out">
         <HeaderAvatarImg
           src={vCard?.avatar!}
           alt="Avatar signature"
@@ -67,10 +69,18 @@ const Header = () => {
         />
       </HeaderAvatarWrap>
 
-      <HeaderName variant="h4" sx={{ fontSize: fontSizeH4 }}>
+      <HeaderName
+        data-aos="zoom-out"
+        variant="h4"
+        sx={{ fontSize: fontSizeH4 }}
+      >
         {[vCard?.firstname, vCard?.lastname].filter(Boolean).join(" ")}
       </HeaderName>
-      <HeaderTitle variant="h6" sx={{ fontSize: fontSizeH6 }}>
+      <HeaderTitle
+        data-aos="zoom-out"
+        variant="h6"
+        sx={{ fontSize: fontSizeH6 }}
+      >
         {vCard?.title[locale as "fr" | "en" | "nl"]}
       </HeaderTitle>
     </HeaderWrapper>
