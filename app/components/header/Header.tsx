@@ -13,7 +13,6 @@ import { useAppContext } from "@/app/context";
 import { IAppContext } from "@/app/interfaces/context.interface";
 import { useRouter } from "next/navigation";
 import { fontSizeH4, fontSizeH6, primaryColor } from "@/app/globalStyles";
-
 const Header = () => {
   const { vCard, locale }: IAppContext = useAppContext();
   const langs: string[] = ["FR", "NL", "EN"];
