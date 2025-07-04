@@ -7,9 +7,9 @@ export const metadata: Metadata = {
   description: "Sanimex vCard",
 };
 
-export default function EnglishLayout({ children }: { children: ReactNode }) {
+export default function ArabicLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en-GB">
+    <html lang="ar">
       <body>{children}</body>
     </html>
   );

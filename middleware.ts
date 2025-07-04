@@ -5,7 +5,7 @@ export function middleware(request: NextRequest) {
 
   // Appliquer uniquement sur la racine "/"
   if (pathname === "/") {
-    const supportedLocales = ["fr", "en", "nl"];
+    const supportedLocales = ["fr", "en", "nl", "ar"];
 
     // 1. Vérifie la présence d’un cookie
     const cookieLocale = request.cookies.get(

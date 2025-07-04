@@ -3,6 +3,7 @@
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import {
+  notFoundAr,
   notFoundEn,
   notFoundFr,
   notFoundNl,
@@ -11,7 +12,7 @@ import { I404Translations } from "./interfaces/404.interface";
 import { Box, Container, Typography } from "@mui/material";
 import { ErrorOutline } from "@mui/icons-material";
 
-const supportedLangs = ["fr-BE", "en-GB", "nl-NL"] as const;
+const supportedLangs = ["fr-BE", "en-GB", "nl-NL", "ar"] as const;
 type SupportedLang = (typeof supportedLangs)[number];
 
 export default function NotFound() {
@@ -46,7 +47,9 @@ export default function NotFound() {
       ? notFoundFr
       : detectedLang === "nl-NL"
         ? notFoundNl
-        : notFoundEn;
+        : detectedLang === "ar"
+          ? notFoundAr
+          : notFoundEn;
 
   return (
     <html lang={detectedLang}>
