@@ -38,9 +38,16 @@ const Header = () => {
               window.location.href = `/${lang === "العربية" ? "ar" : lang.toLowerCase()}/${slug}`;
             }}
             sx={{
-              color: lang.toLowerCase() === locale ? primaryColor : "white",
+              color:
+                lang.toLowerCase() === locale ||
+                (lang === "العربية" && locale === "ar")
+                  ? primaryColor
+                  : "white",
               backgroundColor:
-                lang.toLowerCase() === locale ? "white" : primaryColor,
+                lang.toLowerCase() === locale ||
+                (lang === "العربية" && locale === "ar")
+                  ? "white"
+                  : primaryColor,
               marginRight: id === langs.length - 1 ? "0" : "10px",
               border: "1px solid white",
             }}
