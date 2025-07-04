@@ -15,7 +15,7 @@ import { useRouter } from "next/navigation";
 import { fontSizeH4, fontSizeH6, primaryColor } from "@/app/globalStyles";
 const Header = () => {
   const { vCard, locale }: IAppContext = useAppContext();
-  const langs: string[] = ["FR", "NL", "EN", "AR"];
+  const langs: string[] = ["FR", "NL", "EN", "العربية"];
 
   const router = useRouter();
 
@@ -35,7 +35,7 @@ const Header = () => {
             key={id}
             onClick={() => {
               const slug = vCard?.slug;
-              window.location.href = `/${lang.toLowerCase()}/${slug}`;
+              window.location.href = `/${lang === "العربية" ? "ar" : lang.toLowerCase()}/${slug}`;
             }}
             sx={{
               color: lang.toLowerCase() === locale ? primaryColor : "white",
