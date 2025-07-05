@@ -16,7 +16,7 @@ export const theme: Theme = createTheme({
     },
   },
   typography: {
-    fontFamily: "Daxline Regular, Arial, sans-serif",
+    fontFamily: "NotoSansArabic, Arial, sans-serif",
     body1: {
       lineHeight: "1.6",
     },

@@ -17,8 +17,6 @@ const Header = () => {
   const { vCard, locale }: IAppContext = useAppContext();
   const langs: string[] = ["FR", "NL", "EN", "العربية"];
 
-  const router = useRouter();
-
   return (
     <HeaderWrapper
       sx={{
