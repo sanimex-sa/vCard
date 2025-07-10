@@ -122,7 +122,22 @@ export const vCards: IvCards = {
     type: "SNX",
     slug: "manager",
   },
-  abdelazizChahboun: {
+  mchahboun: {
+    avatar: pathAvatars + "mchahboun.png",
+    lastname: "Chahboun",
+    firstname: "Mohammed",
+    title: {
+      fr: "Directeur général",
+      en: "General Manager",
+      nl: "Algemeen Directeur",
+      ar: "المدير العام",
+    },
+    phone: "+32 478 57 45 35",
+    email: "m.chahboun@sanimex.be",
+    type: "SNX",
+    slug: "mchahboun",
+  },
+  abdelazizChaboun: {
     avatar: pathAvatars + "aziz.png",
     lastname: "Chahboun",
     firstname: "Abdelaziz",
@@ -135,7 +150,7 @@ export const vCards: IvCards = {
     phone: "+32 499 88 04 89",
     email: "abdelaziz@sanimex.be",
     type: "CUI",
-    slug: "abdelazizChahboun",
+    slug: "abdelazizChaboun",
   },
   imadAyad: {
     avatar: pathAvatars + "imad.png",

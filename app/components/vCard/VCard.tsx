@@ -52,7 +52,7 @@ const VCard = () => {
     firstName: vCard?.firstname!,
     lastName: vCard?.lastname!,
     phone: [
-      ...(vCard?.slug === "manager"
+      ...(vCard?.slug === "manager" || vCard?.slug === "mchahboun"
         ? [vCard?.phone!]
         : vCard?.type === "CUI"
           ? [vCard?.phone!, (fixes as any)[vCard?.type]]
@@ -198,9 +198,12 @@ END:VCARD
             display:
               ((id === 0 || id === 2) &&
                 vCard?.type !== "CUI" &&
-                vCard?.slug !== "manager") ||
+                vCard?.slug !== "manager" &&
+                vCard?.slug !== "mchahboun") ||
               (id === 1 && vCard?.slug == "manager") ||
-              (id === 3 && vCard?.slug == "manager")
+              (id === 3 && vCard?.slug == "manager") ||
+              (id === 1 && vCard?.slug == "mchahboun") ||
+              (id === 3 && vCard?.slug == "mchahboun")
                 ? "none !important"
                 : "flex",
           }}
