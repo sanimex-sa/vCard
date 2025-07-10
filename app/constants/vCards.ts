@@ -137,7 +137,7 @@ export const vCards: IvCards = {
     type: "SNX",
     slug: "mchahboun",
   },
-  abdelazizChaboun: {
+  abdelazizChahboun: {
     avatar: pathAvatars + "aziz.png",
     lastname: "Chahboun",
     firstname: "Abdelaziz",
@@ -150,7 +150,7 @@ export const vCards: IvCards = {
     phone: "+32 499 88 04 89",
     email: "abdelaziz@sanimex.be",
     type: "CUI",
-    slug: "abdelazizChaboun",
+    slug: "abdelazizChahboun",
   },
   imadAyad: {
     avatar: pathAvatars + "imad.png",

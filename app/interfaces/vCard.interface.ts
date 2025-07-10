@@ -14,7 +14,7 @@ export interface IvCards {
   sanimex1000: IvCard;
   manager: IvCard;
   mchahboun: IvCard;
-  abdelazizChaboun: IvCard;
+  abdelazizChahboun: IvCard;
   imadAyad: IvCard;
   hassanJbillo: IvCard;
 }
