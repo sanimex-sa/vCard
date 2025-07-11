@@ -25,7 +25,7 @@ import { address, emailGlobal, fixes } from "@/app/constants/vCards";
 import { fontSizeBody1, fontSizeBody2, primaryColor } from "@/app/globalStyles";
 
 const VCard = () => {
-  type Locale = "fr" | "en" | "nl" | "ar";
+  type Locale = "fr" | "en" | "nl";
 
   const { vCard, vCardLang, locale }: IAppContext = useAppContext();
 
@@ -60,18 +60,17 @@ const VCard = () => {
     ].filter(Boolean),
     email: [vCard?.email!, ...(vCard?.type === "CUI" ? [emailGlobal] : [])],
     company: "",
-    jobTitle: vCard?.title[locale as "fr" | "en" | "nl" | "ar"],
+    jobTitle: vCard?.title[locale as "fr" | "en" | "nl"],
     address: {
       street:
         vCard?.type &&
-        address[vCard?.type].street[locale as "fr" | "en" | "nl" | "ar"],
+        address[vCard?.type].street[locale as "fr" | "en" | "nl"],
       city:
-        vCard?.type &&
-        address[vCard?.type].city[locale as "fr" | "en" | "nl" | "ar"],
+        vCard?.type && address[vCard?.type].city[locale as "fr" | "en" | "nl"],
       postalCode: vCard?.type && address[vCard?.type].postalCode,
       country:
         vCard?.type &&
-        address[vCard?.type].country[locale as "fr" | "en" | "nl" | "ar"],
+        address[vCard?.type].country[locale as "fr" | "en" | "nl"],
     },
   };
 
