@@ -9,7 +9,6 @@ import {
   notFoundEn,
   notFoundFr,
   notFoundNl,
-  notFoundAr,
 } from "../translations/404.translate";
 
 const NoVCardFound = () => {
@@ -20,11 +19,7 @@ const NoVCardFound = () => {
       ? notFoundFr.vCard404
       : locale === "nl"
         ? notFoundNl.vCard404
-        : locale === "ar"
-          ? notFoundAr.vCard404
-          : notFoundEn.vCard404;
-
-  const isRTL = locale === "ar";
+        : notFoundEn.vCard404;
 
   return (
     <Box
@@ -34,7 +29,6 @@ const NoVCardFound = () => {
       justifyContent="center"
       py={6}
       textAlign="center"
-      sx={{ direction: isRTL ? "rtl" : "ltr" }}
     >
       <ContactMailIcon color="action" sx={{ fontSize: 60, mb: 2 }} />
       <Typography variant="h6" color="text.secondary">

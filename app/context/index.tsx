@@ -8,7 +8,7 @@ const AppContext = createContext<IAppContext>({
   locale: "fr", // valeur par défaut
 });
 
-const supportedLangs = ["fr", "en", "nl", "ar"] as const;
+const supportedLangs = ["fr", "en", "nl"] as const;
 type SupportedLang = (typeof supportedLangs)[number];
 
 export const AppWrapper = ({
@@ -29,7 +29,7 @@ export const AppWrapper = ({
       const firstSegment: SupportedLang = pathname.split(
         "/"
       )[1] as SupportedLang;
-      if (["fr", "nl", "en", "ar"].includes(firstSegment)) {
+      if (["fr", "nl", "en"].includes(firstSegment)) {
         setLocale(firstSegment);
       }
     }

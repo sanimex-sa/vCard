@@ -3,7 +3,7 @@ export interface IvCard {
   avatar: string;
   lastname: string;
   firstname: string;
-  title: { fr: string; en: string; nl: string; ar: string };
+  title: { fr: string; en: string; nl: string };
   phone: string;
   email: string;
   slug: string;

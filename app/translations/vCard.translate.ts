@@ -38,20 +38,3 @@ export const vCardNl: IVCardTranslations = {
   },
   address: "Adres",
 };
-
-export const vCardAr: IVCardTranslations = {
-  addContact: "إضافة جهة اتصال",
-  phone: "الرقم المباشر",
-  fixe: {
-    CUI: "رقم المطبخ الرئيسي",
-    SNX: "الرقم الرئيسي",
-    SNX2: "الرقم الرئيسي",
-  },
-  emailPerso: "البريد الإلكتروني المباشر",
-  emailGlobal: {
-    CUI: "البريد الإلكتروني للمطبخ الرئيسي",
-    SNX: "البريد الإلكتروني",
-    SNX2: "البريد الإلكتروني",
-  },
-  address: "العنوان",
-};

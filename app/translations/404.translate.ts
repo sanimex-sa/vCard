@@ -17,9 +17,3 @@ export const notFoundNl: I404Translations = {
   text: "De pagina die u zoekt bestaat niet.",
   vCard404: "Er werd geen vCard gevonden.",
 };
-
-export const notFoundAr = {
-  title: "الصفحة غير موجودة",
-  text: "عذراً، الصفحة التي تبحث عنها غير موجودة.",
-  vCard404: "لم يتم العثور على بطاقة.",
-};
